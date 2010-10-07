@@ -59,7 +59,6 @@ webKing.classify(tabManager, {
     
     getDomNode:function(){
         for(var i in this.tabs){
-            console.log(this.parentContainer);
             this.parentContainer.appendChild(this.tabs[i].getDomNode());
         }
         this.domNode = this.parentContainer;

@@ -26,7 +26,7 @@ webKing.classify(header, {
 
    initiate:function(){
        //initiate vars
-       this.domNode = this.domTemplate();
+       this.domNode = this.getDomNode();
    },
    
    setLinks:function(/*linksList*/ll){
