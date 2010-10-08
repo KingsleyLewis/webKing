@@ -15,10 +15,12 @@ webKing.classify(tabManager, {
     tabs:[],
     numTabs:0,
     selectedTab:0,
-    parentContainer:document.createElement('div'),
+    parentContainer:"",
     domNode:"",
     
     initiate:function(){
+    	this.tabs = new Array();
+    	this.parentContainer = document.createElement('div');
         var tabList = this.arguments[0];
         if(webKing.isArray(tabList)){
             for(var i = 0; i != tabList.length; i++){
@@ -31,6 +33,7 @@ webKing.classify(tabManager, {
                 }
             }
         }
+        
     },
 
     tabExists:function(tab){
@@ -47,7 +50,7 @@ webKing.classify(tabManager, {
     },
 
     addTab:function(/*obj*/tab){
-        this.numTabs++;
+    	this.numTabs++;
         this.tabs.push(tab);
     },
 
