@@ -18,13 +18,16 @@ webKing.classify(ajax,{
     url:"",
     asText:"",
     asXml: "",
+    asJson:"",
     asHtml:"",
     params:"",
     
     callback: function(){console.log("Your Code fails to define this function - No Callback For You!!");}, //blank function for call back - you define it
 
     initiate:function(){
-
+    	if(this.arguments){
+    		this.url = this.arguments[0];
+    	}
     },
     
     getXmlHttpObject:function()
@@ -55,6 +58,7 @@ webKing.classify(ajax,{
                 if(this.xmlHttpObj.readyState ==4 && this.xmlHttpObj.status ==200){
                     this.asText = this.xmlHttpObj.responseText;
                     this.asXml = this.xmlHttpObj.responseXML;
+                    this.asJson = JSON.parse(this.asText);
                     this.asHtml = text2html(this.asText);
                     this.callback();
                 }
@@ -82,7 +86,7 @@ webKing.classify(ajax,{
     sendRequest: function () {
         this.getXmlHttpObject();
         if (this.method == "POST") {
-            this.xmlHttpObj.open("POST", this.url, this.async);
+        	this.xmlHttpObj.open("POST", this.url, this.async);
             this.xmlHttpObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             this.xmlHttpObj.send(this.params);
             var self = this;//this refers to global state - assign to self for fucntion state below;
@@ -91,6 +95,11 @@ webKing.classify(ajax,{
                if(self.xmlHttpObj.readyState == 4 && self.xmlHttpObj.status == 200){
                     self.asText = this.responseText;
                     self.asXml = this.responseXML;
+                    if(typeof(JSON) == 'undefined'){
+                    	self.asJson = eval('(' + self.asText + ')');//I forIE7
+                    }else{
+                    	self.asJson = JSON.parse(self.asText);
+                    }
                     self.asHtml = self.text2html(self.asText);
                     self.callback();
                 }
