@@ -33,15 +33,18 @@
     };
     //create new object to be extended later
     webKing.inject = function(/*str*/component){
-            var myCode = 'function '+ component +'(){this.arguments = arguments;if(this.initiate){this.initiate()};} '+
-                    component +'.prototype.die = function(msg){console.log(msg);return false};'+
-                    component +'.prototype.objClass = new Array("'+ component +'"); return '+ component +';';
+    	//console.log("proto",'+ component +'.prototype);if(this.reset){console.log(this.reset);'+ component +'.prototype = this.reset;}
+        //if(this.reset){console.log(this);}for(var funcName in this.reset){this.prototype = {};this.prototype[funcName] = this.reset[funcName];}   
+    	var myCode = 'function '+ component +'(){this.arguments = arguments;if(this.initiate){this.initiate()}}'+        
+            component +'.prototype.die = function(msg){console.log(msg);return false};'+
+            component +'.prototype.objClass = new Array("'+ component +'"); return '+ component +';';
             window[component] = new Function(myCode)();
     };
     // add functionality to object, should be used with inject
     webKing.classify = function(/*obj*/objToExt, /*objLit*/extender, /*bool*/includeWebKing){
-        
-        for(var funcName in extender){
+    	//objToExt.prototype.reset = extender;
+    	//objToExt.prototype.objtoEx = objToExt;
+    	for(var funcName in extender){
             objToExt.prototype[funcName] = extender[funcName];
         }
        

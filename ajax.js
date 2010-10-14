@@ -95,10 +95,12 @@ webKing.classify(ajax,{
                if(self.xmlHttpObj.readyState == 4 && self.xmlHttpObj.status == 200){
                     self.asText = this.responseText;
                     self.asXml = this.responseXML;
-                    if(typeof(JSON) == 'undefined'){
-                    	self.asJson = eval('(' + self.asText + ')');//I forIE7
-                    }else{
-                    	self.asJson = JSON.parse(self.asText);
+                    if(self.asText.indexOf("{", 0) != -1){
+	                    if(typeof(JSON) == 'undefined'){
+	                    	self.asJson = eval('(' + self.asText + ')');//I forIE7
+	                    }else{
+	                    	self.asJson = JSON.parse(self.asText);
+	                    }
                     }
                     self.asHtml = self.text2html(self.asText);
                     self.callback();
