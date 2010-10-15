@@ -1,5 +1,5 @@
 
-webKing.inject("linkList");
+webKing.create("linkList");
 
 webKing.classify(linkList,{
     

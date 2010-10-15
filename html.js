@@ -6,7 +6,7 @@
  *   Remember that keyword "this" does not get pushed to inner functions
  *   use thisClass = this because inner functions have access to it's parents variables
  */
-webKing.inject("html");
+webKing.create("html");
 
 webKing.classify(html,{
 

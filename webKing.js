@@ -32,7 +32,7 @@
 
     };
     //create new object to be extended later
-    webKing.inject = function(/*str*/component){
+    webKing.create = function(/*str*/component){
     	//console.log("proto",'+ component +'.prototype);if(this.reset){console.log(this.reset);'+ component +'.prototype = this.reset;}
         //if(this.reset){console.log(this);}for(var funcName in this.reset){this.prototype = {};this.prototype[funcName] = this.reset[funcName];}   
     	var myCode = 'function '+ component +'(){this.arguments = arguments;if(this.initiate){this.initiate()}}'+        
@@ -58,13 +58,13 @@
         }
     };
 
-    webKing.inherit = function(mySuper){
-        //accept two classes and combine the super into the sub
-        console.log(this);
-        console.log(mySub.prototype);
-        //mySub.prototype = new mySuper();
-        //mySuper.prototype.objClass.push(mySub.prototype.objClass);
-        this.classify(mySub,new mySuper());
+    webKing.inject = function(/*object*/obj){
+    	if(window[obj]){
+    		alert("here");
+    	}else{
+    		alert("not Here");
+    	}
+    	console.log(obj);
     };
 
     /*directly extend the webKing object

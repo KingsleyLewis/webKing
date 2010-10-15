@@ -1,4 +1,4 @@
-webKing.inject("workFlowFactory");
+webKing.create("workFlowFactory");
 
 webKing.classify(workFlowFactory,{
 

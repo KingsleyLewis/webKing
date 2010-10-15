@@ -4,7 +4,7 @@
  *   use thisClass = this because inner functions have access to it's parents variables
  */
 
-webKing.inject("tab");
+webKing.create("tab");
 
 webKing.classify(tab,{
 

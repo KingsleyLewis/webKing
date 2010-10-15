@@ -1,7 +1,7 @@
 /**
  * 
  */
-webKing.inject("selectMenu");
+webKing.create("selectMenu");
 
 webKing.classify(selectMenu, {
 	

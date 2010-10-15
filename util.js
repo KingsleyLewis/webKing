@@ -7,7 +7,7 @@
  *   use thisClass = this because inner functions have access to it's parents variables
  */
 
-webKing.inject("util");
+webKing.create("util");
 
 webKing.classify(util,{
 

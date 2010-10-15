@@ -1,7 +1,7 @@
 /**
  * 
  */
-webKing.inject("footer");
+webKing.create("footer");
 webKing.classify(footer,{
 	
 	initiate:function(){}
