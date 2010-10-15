@@ -7,15 +7,15 @@ webKing.classify(textBox, {
 	value:"",
 	domNode:"",
 	
-	
-	inititate:function(){
+	initiate:function(){
 		this.value = this.arguments[0];
-		tb = document.createElement("input");
+		var tb = document.createElement("input");
 		tb.type = "text";
 		tb.name = this.name;
 		tb.id = this.id;
 		tb.value = this.value;
 		this.domNode = tb;
+		console.log(tb);
 	},
 	
 	getDomNode:function(){
@@ -25,6 +25,4 @@ webKing.classify(textBox, {
 	
 	
 
-}, false);/**
- * 
- */
+}, false);
