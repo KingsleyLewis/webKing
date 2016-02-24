@@ -19,7 +19,7 @@ webKing.classify(aboutBox,{
     optLink:"",
     copyright:"",
     trademark:"",
-    ciscoLogo:"",
+    logo:"",
     domNode:"",
 
     initiate:function(){
